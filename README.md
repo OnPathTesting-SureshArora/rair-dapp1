@@ -21,6 +21,7 @@ Inside the repository root is a file called `.env.sample.` This template contain
 - Create a new file in the repositry root called `.env`
 
 - Copy and paste the contents of `.env.sample` into `.env`
+Samilar changes required for .env.sample to .env for rair-front folder also.
 
 ## Install Docker-compose
 
