@@ -26,7 +26,7 @@ jobs:
           with:
             context: rair-node/
             push: true
-            tags: rairprotocol/rair-node:latest
+            tags: rairprotocol/rair-node:${GIT_COMMIT}
 
         - name: build and push rair-front docker image to registry
           uses: docker/build-push-action@v5
