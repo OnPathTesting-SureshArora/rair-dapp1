@@ -26,7 +26,7 @@ jobs:
           with:
             context: rair-node/
             push: true
-            tags: rairprotocol/rair-node:$(date +%s)
+            tags: rairprotocol/rair-node:$({{date +%s}}
 
         - name: build and push rair-front docker image to registry
           uses: docker/build-push-action@v5
@@ -34,20 +34,20 @@ jobs:
             context: rair-front/
             file: rair-front/Dockerfile.prod
             push: true
-            tags: rairprotocol/rair-front:$(date +%s)
+            tags: rairprotocol/rair-front:${{date +%s}}
             
         - name: build and push rair-stream docker image to registry
           uses: docker/build-push-action@v5
           with:
             context: rair-stream/
             push: true
-            tags: rairprotocol/rair-stream:$(date +%s)
+            tags: rairprotocol/rair-stream:${{date +%s}}
 
         - name: build and push rair-sync docker image to registry
           uses: docker/build-push-action@v5
           with:
             context: rair-sync/
             push: true
-            tags: rairprotocol/rair-sync:$(date +%s)
+            tags: rairprotocol/rair-sync:${{date +%s}}
 
 
