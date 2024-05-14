@@ -14,6 +14,8 @@ jobs:
       steps:
         - name: checkout repository
           uses: actions/checkout@v4
+          with:
+            ref: 'dev'
 
         - name: login to docker registry
           uses: docker/login-action@v3
@@ -29,12 +31,14 @@ jobs:
             tags: rairprotocol/rair-node:latest
 
         - name: build and push rair-front docker image to registry
-          uses: docker/build-push-action@v5
-          with:
-            context: rair-front/
-            file: rair-front/Dockerfile.prod
-            push: true
-            tags: rairprotocol/rair-front:latest
+          run: cp rair-front/.env.sample rair-front/.env
+        - name: build rair-front docker image
+          run: sudo docker build -t rair-front:latest -f rair-front/Dockerfile.prod rair-front
+        - name: tab image
+          run: docker tag rair-front:latest rairprotocol/rair-front:latest
+        - name: Docker push
+          run: docker push ${{secrets.DOCKERHUB_USERNAME}}/rair-front:latest
+
             
         - name: build and push rair-stream docker image to registry
           uses: docker/build-push-action@v5
@@ -49,5 +53,3 @@ jobs:
             context: rair-sync/
             push: true
             tags: rairprotocol/rair-sync:latest
-
-
