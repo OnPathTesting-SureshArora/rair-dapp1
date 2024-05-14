@@ -32,6 +32,8 @@ jobs:
           run: cp rair-front/.env.sample rair-front/.env
         - name: build rair-front docker image
           run: sudo docker build -t rair-front:latest -f rair-front/Dockerfile.prod rair-front
+        - name: tab image
+          run: docker tag rair-front:latest rairprotocol/rair-front:latest
         - name: Docker push
           run: docker push ${{secrets.DOCKERHUB_USERNAME}}/rair-front:latest
 
