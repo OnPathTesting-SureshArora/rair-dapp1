@@ -29,13 +29,12 @@ jobs:
             tags: rairprotocol/rair-node:latest
 
         - name: build and push rair-front docker image to registry
-          uses: docker/build-push-action@v5
-          with:
-            context: rair-front/
-            run: cp .env.sample .env
-            file: rair-front/Dockerfile.prod
-            push: true
-            tags: rairprotocol/rair-front:latest
+          run: cp .env.sample .env
+        - name: build rair-front docker image
+          run: sudo docker build -t rair-front:latest -f rair-front/Dockerfile.prod rair-front
+        - name: Docker push
+          run: docker push ${{secrets.DOCKERHUB_USERNAME}}/rair-front
+
             
         - name: build and push rair-stream docker image to registry
           uses: docker/build-push-action@v5
