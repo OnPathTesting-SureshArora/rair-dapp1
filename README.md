@@ -22,7 +22,7 @@ Inside the repository root is a file called `.env.sample.` This template contain
 
 - Copy and paste the contents of `.env.sample` into `.env`
 
-Samilar changes required for .env.sample to .env for rair-front folder also.
+Samilar changes required in rair-front folder also.
 
 ## Install Docker-compose
 
