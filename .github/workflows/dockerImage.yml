@@ -29,8 +29,8 @@ jobs:
             context: rair-node/
             push: true
             tags: |
-              rairprotocol/rair-node:${{github.sha}}
-              rairprotocol/rair-node:latest
+              ${{secrets.DOCKERHUB_USERNAME}}/rair-node:${{github.sha}}
+              ${{secrets.DOCKERHUB_USERNAME}}:latest
 
         - name: build and push rair-front docker image to registry
           run: cp rair-front/.env.sample rair-front/.env
@@ -47,12 +47,12 @@ jobs:
           with:
             context: rair-stream/
             push: true
-            tags: rairprotocol/rair-stream:${{github.sha}}
+            tags: ${{secrets.DOCKERHUB_USERNAME}}/rair-stream:${{github.sha}}
 
         - name: build and push rair-sync docker image to registry
           uses: docker/build-push-action@v5
           with:
             context: rair-sync/
             push: true
-            tags: rairprotocol/rair-sync:${{github.sha}}
+            tags: ${{secrets.DOCKERHUB_USERNAME}}/rair-sync:${{github.sha}}
 
