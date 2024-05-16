@@ -39,7 +39,7 @@ jobs:
         - name: tag image
           run: |
             docker tag rair-front:${{github.sha}} ${{secrets.DOCKERHUB_USERNAME}}/rair-front:${{github.sha}}
-            docker tag rair-front:latest ${{secrets.DOCKERHUB_USERNAME}}/rair-front:latest
+            docker tag rair-front:${{github.sha}} ${{secrets.DOCKERHUB_USERNAME}}/rair-front:latest
         - name: Docker push
           run: |
             docker push ${{secrets.DOCKERHUB_USERNAME}}/rair-front:${{github.sha}}
