@@ -28,7 +28,7 @@ jobs:
           with:
             context: rair-node/
             push: true
-            tags: rairprotocol/rair-node:${{github.sha}}
+            tags: rairprotocol/rair-node:${{github.sha}}, rairprotocol/rair-node:latest
 
         - name: build and push rair-front docker image to registry
           run: cp rair-front/.env.sample rair-front/.env
