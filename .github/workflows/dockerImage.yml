@@ -7,6 +7,10 @@ on:
     branches:
       - dev
 
+#Allow repo secrets
+env:
+  VITE_ALCHEMY_KEY: ${{ secrets.VITE_ALCHEMY_KEY }}
+
 jobs:
     if_merged:
       if: github.event.pull_request.merged == true
