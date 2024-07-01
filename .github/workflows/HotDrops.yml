@@ -19,6 +19,7 @@ env:
   VITE_ALCHEMY_KEY: ${{ secrets.VITE_ALCHEMY_KEY }}
 
 jobs:
+  build:
    runs-on: ubuntu-latest
    steps:
       - name: checkout repository
