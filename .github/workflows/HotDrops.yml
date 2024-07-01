@@ -50,5 +50,3 @@ jobs:
         run: |
           docker push ${{secrets.DOCKERHUB_USERNAME}}/rair-front:_${{github.sha}}
           docker push ${{secrets.DOCKERHUB_USERNAME}}/rair-front:_latest
-          
-            docker push ${{secrets.DOCKERHUB_USERNAME}}/rair-front:_latest
